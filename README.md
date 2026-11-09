@@ -8,16 +8,32 @@ An independent learning exercise prepared in November 2026 to develop a practica
 - Applied dewow, background removal and time-power gain.
 - Converted travel time to estimated depth using an assumed wave velocity of 0.1 m/ns.
 - Created a simplified illustrative simulation comparing two buried pipes in different assumed soil conditions.
+- Read the file header through GPRPy and directly from the raw file, which showed two fields that GPRPy does not display (antenna name and creation date).
 - Developed a 17-field metadata checklist for documenting GPR surveys, with the source and status of each field.
 
 ![Simulated pipes in dry sand and wet clay](fig4_simulated_pipes.png)
 
 ## Files
 
-- **GPR Learning Note:** One-page summary of the exercise, observations and limitations.
-- **Python scripts:** Data processing, illustrative simulation and header inspection.
-- **Figures:** Raw, processed, depth-converted and simulated radargrams.
-- **Metadata checklist (`GPR_metadata_form.xlsx`):** 17 proposed fields for survey documentation, filled in for the example file. 10 of 17 fields are missing, including all four ground-condition fields.
+| File | What it is |
+|---|---|
+| `Hassanpour_Shiva_GPR_Learning_Note.pdf` | One-page summary of the exercise, observations and limitations |
+| `step1_real_profile.py` | Processes the example profile (dewow, background removal, gain, depth conversion) and saves `fig1`–`fig3` |
+| `step2_simulated_pipes.py` | Simplified, illustrative simulation of two pipes in two assumed soils (`fig4`) |
+| `step3_header.py` | Prints the file header as GPRPy reads it |
+| `step4_raw_header.py` | Reads the antenna name and creation date directly from the raw .DZT header |
+| `processing_history.py` | Processing steps and parameters, saved automatically by GPRPy |
+| `GPR_metadata_form.xlsx` | 17 proposed metadata fields, filled in for the example file: 8 missing (including all four ground-condition fields), 2 found only in the raw header |
+| `fig1_raw.pdf`, `fig2_processed.pdf`, `fig3_depth.pdf` | Raw, processed and depth-converted profile |
+| `fig4_simulated_pipes.png` | Simulated radargrams |
+
+## How to run
+
+1. Install Python 3 with NumPy and Matplotlib, and install GPRPy (https://github.com/NSGeophysics/GPRPy).
+2. Put the scripts in the folder that contains the GPRPy folder, so that `gprpy/exampledata/GSSI/FILE____032.DZT` can be found.
+3. Run `python step1_real_profile.py`, then steps 2–4 in the same way.
+
+`processing_history.py` was generated on Windows and contains the file path on that computer; change the path before running it elsewhere.
 
 ## Limitations
 
